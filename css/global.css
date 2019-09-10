@@ -1,0 +1,596 @@
+@font-face {
+    font-family: pixelFont;
+    src: url("../fonts/pixelFont.ttf");
+}
+
+/* ----------------  Login Page  ---------------------------------------------*/
+
+#loginPageBody {
+    background-image: url("../images/menuLogin.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: black;
+    display: grid;
+    grid-template-areas: "title" "titleCard" "loginBox" "copyright";
+    grid-template-rows: 15% 43% 22% 20%;
+    height: 97vh;
+}
+
+h2 {
+    padding-top: 4%;
+    grid-area: title;
+    font-size: 1.7em;
+    ;
+    text-align: center;
+    font-family: pixelFont;
+    color: rgb(57, 198, 255);
+}
+
+#titleCard {
+    grid-area: titleCard;
+}
+
+#loginBox {
+    grid-area: loginBox;
+    margin: 0 auto;
+    padding: 10px 10px;
+    color: rgb(252, 188, 176);
+    font-family: pixelFont;
+}
+
+#loginBox p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.singleLineField {
+    display: flex;
+    margin: 10px 10px;
+    background-color: black;
+}
+
+.infoField {
+    flex: 2;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.answerField {
+    flex: 1;
+}
+
+.btn-connexion {
+    margin: 20px auto;
+    width: 80%;
+    font-size: 1em;
+    height: 2em;
+    font-family: pixelFont;
+    background-color: rgb(252, 188, 176);
+}
+
+.errorBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    background-color: white;
+    content: "";
+    width: 100%;
+    height: auto;
+}
+
+#mockingTyson {
+    height: 638px;
+    width: 271px;
+    background-image: url("../images/mikeTysonLogin.png");
+    background-repeat: none;
+    position: absolute;
+    left: 5%;
+    bottom: 15%;
+    opacity: 0;
+}
+
+#wrongLoginInfo {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    width: 250px;
+    height: 100px;
+    padding: 40px 5px;
+    text-align: center;
+    font-size: 1em;
+    color: black;
+}
+
+/* ----------------  Gameplay Page  ---------------------------------------------*/
+
+#gameplayPageBody {
+    background-color: black;
+    overflow: hidden;
+}
+
+#canvasContainer {
+    background-image: url("../images/ring.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    background-attachment: fixed;
+    margin: 0 auto;
+    width: 1200px;
+    height: 1000px;
+    z-index: -1;
+}
+
+.characterBar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 4em;
+}
+
+#barMac {
+    top: 3%;
+    left: 25%;
+}
+
+#barTyson {
+    top: 3%;
+    right: 25%;
+}
+
+.characterName {
+    font-size: 1.5em;
+    color: black;
+}
+
+.hpBar {
+    width: 230px;
+    height: 2em;
+    background-color: white;
+    border-radius: 3px;
+    border: 5px solid black;
+}
+
+.remainingHp {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    /* transition: width 1s; */
+}
+
+.mpBar {
+    margin-top: 3px;
+    width: 230px;
+    height: 0.5em;
+    background-color: white;
+    border-radius: 1px;
+    border: 5px solid black;
+}
+
+#remainingMp {
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    /* transition: width 1s; */
+}
+
+.remainingHp {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    transition: width 0.5s;
+}
+
+#mpBarTyson {
+    display: none;
+}
+
+#attackButtons {
+    width: 1200px;
+    position: absolute;
+    bottom: 2%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#attack1 {
+    background-color: red;
+}
+
+#attack2 {
+    background-color: orange;
+}
+
+#attack3 {
+    background-color: green;
+}
+
+.attackButton {
+    color: white;
+    cursor: pointer;
+    width: 175px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    border: 5px outset black;
+    border-radius: 5px;
+}
+
+.btn-quit {
+    width: 195px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border: 5px inset black;
+    background-color: rgb(252, 188, 176);
+    color: black;
+    bottom: 2%;
+    position: absolute;
+    cursor: pointer;
+}
+
+#lobby {
+    left: 2%;
+}
+
+#connexion {
+    right: 2%;
+    text-decoration: none;
+}
+
+.endScreen {
+    position: absolute;
+    top: 25%;
+    right: 25%;
+    width: 50%;
+    height: 350px;
+    line-height: 150px;
+    text-align: center;
+    font-size: 5em;
+    border-radius: 3px;
+    background-color: black;
+    display: none;
+    opacity: 0;
+    padding: 50px 0;
+}
+
+.endScreen a {
+    font-size: 0.3em;
+    color: white;
+}
+
+#endScreenWin {
+    color: gold;
+    border: 10px solid gold;
+}
+
+#endScreenLose {
+    color: blue;
+    border: 10px solid blue;
+}
+
+#otherPlayersInfo {
+    margin: 0;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    width: 300px;
+    height: 500px;
+    position: absolute;
+    left: 2%;
+    top: 10%;
+}
+
+.otherPlayerInfo {
+    margin-top: 10px;
+    line-height: 30px;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    color: black;
+    background-color: blanchedalmond;
+    border: 5px solid gold;
+    border-radius: 10px;
+
+}
+
+#player2Info {}
+
+#player3Info {}
+
+#player4Info {}
+
+/* ----------------  Game Select Page  ---------------------------------------------*/
+
+body {
+    background-color: white;
+    color: white;
+    font-family: pixelFont;
+}
+
+#navLobby {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    color: rgb(252, 188, 176);
+    font-family: pixelFont;
+    background-color: white;
+    border: 3px dashed black;
+    padding: 5px 5px;
+    font-size: 1em;
+    display: none;
+}
+
+#navLobby a {
+    padding: 8px;
+}
+
+#gloves {
+    width: 100%;
+    height: 75px;
+    ;
+}
+
+.gloves {
+    background-image: url("../images/boxingGlove.png");
+    width: 148px;
+    height: 125px;
+    position: absolute;
+    margin: 30px 0;
+    cursor: pointer;
+}
+
+#glove1 {
+    transform: scaleX(-1) rotate(90deg);
+    left: 0;
+}
+
+#glove2 {
+    transform: rotate(90deg);
+    right: 0;
+}
+
+#userInfo {
+    color: red;
+    padding-top: 15%;
+    height: 70%;
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: "name name" "level level" "hp mp";
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+}
+
+#userInfoContainer {
+    padding: 25px 25px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    width: 400px;
+    margin: 75px auto;
+}
+
+#nameLobby {
+    grid-area: name;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+#levelLobby {
+    grid-area: level;
+}
+
+#hpLobby {
+    grid-area: hp;
+    text-align: right;
+    padding-right: 8%;
+}
+
+#mpLobby {
+    grid-area: mp;
+    text-align: left;
+    padding-left: 8%;
+}
+
+#gameSelectBody h1 {
+    margin: 75px 0;
+    text-align: center;
+    font-size: 4em;
+    color: rgb(252, 188, 176);
+    display: none;
+}
+
+#games {
+    background-color: black;
+    margin: 35px auto;
+    width: 1500px;
+}
+
+.rangee {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game {
+    float: left;
+    display: block;
+    width: 250px;
+    height: auto;
+    text-align: center;
+    margin: 50px 30px;
+    line-height: 25px;
+    background-color: blanchedalmond;
+    color: black;
+    padding: 25px 5px;
+    border: 25px gold double;
+    border-radius: 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.single-line-game {
+    display: flex;
+    justify-content: center;
+}
+
+.game-img {
+    background-repeat: none;
+    width: 195px;
+    height: 187px;
+    margin: 10px auto;
+}
+
+.game-name {
+    color: rgb(252, 188, 176);
+    font-size: 1.4em;
+}
+
+.game-level {
+    font-size: 2em;
+    margin: 15px 0;
+}
+
+.imgDiv {
+    width: 100%;
+    height: auto;
+    margin: 50px 0;
+}
+
+#difficulty-imgs {
+    margin: 0 100px;
+    display: none;
+    margin-top: 50px;
+    justify-content: space-evenly;
+}
+
+.img {
+    width: 300px;
+    height: 255px;
+    margin: auto auto;
+    background-size: cover;
+    background-repeat: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#imgEasy {
+    background-image: url("../images/easyDifficulty.png");
+}
+
+#imgMedium {
+    width: 350px;
+    height: 320px;
+    border: 10px gold solid;
+    background-image: url("../images/mediumDifficulty.png");
+}
+
+#imgHard {
+    background-image: url("../images/hardDifficulty.png");
+}
+
+.btn-lobby {
+    top: 0;
+    width: 195px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 5px inset black;
+    background-color: rgb(252, 188, 176);
+    color: black;
+    position: absolute;
+    cursor: pointer;
+}
+
+#userInfo-btn {
+    text-decoration: none;
+    right: 0;
+}
+
+#deconnexion {
+    text-decoration: none;
+    left: 0;
+}
+
+/* ----------------  User Info Page  ---------------------------------------------*/
+
+#userInfoBody {
+    background-image: url("../images/trainingBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    background-color: black;
+}
+
+#navUserInfo {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    color: rgb(252, 188, 176);
+    font-family: pixelFont;
+    background-color: white;
+    border: 3px dashed black;
+    padding: 5px 5px;
+    font-size: 0.7em;
+}
+
+.userInfos {
+    background-color: black;
+    display: inline-block;
+    position: absolute;
+    right: 7%;
+    top: 7%;
+    width: 500px;
+    margin: 0 auto;
+    padding: 15px 15px;
+    color: white;
+    font-family: pixelFont;
+    border: 2px dashed black;
+    line-height: 20px;
+}
+
+.userInfos h1 {
+    text-decoration: underline;
+    line-height: 40px;
+}
+
+.singleInfoLine {
+    display: flex;
+    margin: 10px 10px;
+}
+
+.infoType {
+    flex: 5;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.info {
+    flex: 2;
+    text-align: right;
+    color: rgb(252, 188, 176);
+}
+
+#trainingMac {
+    background-image: url("../images/trainingMacFrame1.png");
+    width: 250px;
+    height: 500px;
+    position: absolute;
+    bottom: 10%;
+    right: 130%;
+}
+
+#trainingDoc {
+    background-image: url("../images/trainingDoc.gif");
+    position: absolute;
+    width: 340px;
+    height: 460px;
+    bottom: 10%;
+    right: 110%;
+}
